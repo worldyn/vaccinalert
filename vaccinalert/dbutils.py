@@ -1,9 +1,16 @@
 import pymysql
+import json
 
 # Open database connection
 # returns databse object db, cursor
 def connect():
-    db = pymysql.connect(host='localhost',user='root',password='',database='vaccinalert')
+    f = open('database.json', 'r') 
+    data = json.load(f)
+    host = data['MYSQL_HOST']
+    user = data['MYSQL_USER']
+    password = data['MYSQL_PASSWORD']
+    db_name = data['MYSQL_DB']
+    db = pymysql.connect(host=host,user=user,password=password,database=db_name)
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
     return db, cursor
