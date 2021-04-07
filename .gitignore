@@ -2,6 +2,8 @@
 secret_key
 *.swp
 *.log
+gmailaccountnames.json
+database.json
 
 1177.html
 
