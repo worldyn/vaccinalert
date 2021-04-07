@@ -1,8 +1,8 @@
 # keys
 secret_key
+*.swp
 
 1177.html
-*.swp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
