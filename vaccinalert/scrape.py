@@ -5,19 +5,20 @@ from selenium.webdriver.common.keys import Keys
 import json
 import time
 from dbutils import *
+from emailsender import *
 
 def main():
     sleep_time = 60 # seconds
 
     while True:
+        print("\n\n")
+        print("=> Scraping 1177.se")
+
         # setup web browser
         browser = webdriver.PhantomJS()
         # sthlm hardcoded
         url = 'https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/'
         browser.get(url)
-
-        print("\n\n")
-        print("=> Scraping 1177.se")
 
         boxes = browser.find_elements_by_css_selector(".c-teaser-outer .c-image img")
         num_boxes = len(boxes)
@@ -40,13 +41,18 @@ def main():
 
         # if mismatch send out emails and update db
         if curr_num_groups != num_boxes or curr_num_closed_groups != num_notopen:
-            # TODO: send email 
+            print("=> ALERT MISMATCH!!! Sending out alerts ...")
+            send_emails("stockholm")
             update_status("stockholm", num_boxes, num_notopen, db, cursor)
+        else:
+            print("=> no mismatch, no change ...")
             
 
         browser.quit()
         # sleepy time
+        print("=> Sleepy time for {} seconds... zzzzz".format(sleep_time))
         time.sleep(sleep_time)
+
 
 if __name__ == "__main__":
     main()
