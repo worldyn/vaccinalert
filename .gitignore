@@ -1,6 +1,7 @@
 # keys
 secret_key
 *.swp
+*.log
 
 1177.html
 
