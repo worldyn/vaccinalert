@@ -37,12 +37,17 @@ def get_all_verified_emails(region, db, cursor):
     cursor.execute(sql, (region))
     return cursor.fetchall()
 
-    '''
-    emails = []
-    for tup in res:
-        emails.append(tup[0])
-    return emails
-    '''
+# returns num_groups, num_closed_groups
+def get_status(region, db, cursor):
+    sql = "SELECT `num_groups`,`num_closed_groups` FROM `Status` WHERE `region`=%s"
+    cursor.execute(sql, (region))
+    res = cursor.fetchone()
+    return res[0], res[1]
+
+def update_status(region, num_groups, num_closed_groups, db, cursor):
+    sql = "UPDATE `Status` SET `region` = %s, `num_groups` = %s, `num_closed_groups` = %s"
+    cursor.execute(sql, (region, num_groups, num_closed_groups))
+    db.commit()
 
 # Example usage:
 # https://pymysql.readthedocs.io/en/latest/user/examples.html
@@ -50,4 +55,6 @@ def get_all_verified_emails(region, db, cursor):
 #insert_email("adam@aaa.com", "stockholm", db, cursor)
 #res = get_all_verified_emails("stockholm", db,cursor)
 #print(res)
-
+#num_groups, num_closed_groups = get_status("stockholm", db,cursor)
+#print(num_closed_groups)
+#update_status("stockholm", 8, 7, db, cursor)
