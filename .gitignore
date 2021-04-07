@@ -4,6 +4,7 @@ secret_key
 *.log
 gmailaccountnames.json
 database.json
+*.json
 
 1177.html
 
