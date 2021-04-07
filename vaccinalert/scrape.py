@@ -13,7 +13,10 @@ print("=> \n\nScraping 1177.se")
 boxes = browser.find_elements_by_class_name("c-teaser-outer")
 #with open("1177.html", "w") as f:
 #    f.write(browser.page_source)
-print("=> Number of boxes: ", len(boxes))
+
+num_boxes = len(boxes)
+print("=> Number of boxes: ", num_boxes)
+
 
 browser.quit()
 
