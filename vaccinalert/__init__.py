@@ -26,7 +26,7 @@ def index():
         mysql.connection.commit()
         cur.close()
         return render_template('success.html')
-    return render_template('index.html')
+    return render_template('testindex.html')
 
 
 if __name__ == "__main__":
