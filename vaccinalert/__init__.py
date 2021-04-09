@@ -43,7 +43,7 @@ def index():
         except:
             print("server error...")
             return render_template('error.html')
-    return render_template('testindex.html', content="Ost")
+    return render_template('testindex.html')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
