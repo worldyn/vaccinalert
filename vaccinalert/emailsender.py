@@ -2,6 +2,7 @@
 import smtplib
 import dbutils 
 import json
+import time
 
 message_notif = """\
 Subject: 1177 vaccination page changed in your region
@@ -41,11 +42,19 @@ def send(receivers,message, tupformat=True):
     f.close()
 
     # sending the mail
+    it = 0
+    ratelimit = 15 # MIGHT HAVE TO BE TUNED
+    ratelimit_sleep = 61
     for email in receivers:
+        time.sleep(1)
         if tupformat:
             s.sendmail(sender_email, email[0], message)
         else:
             s.sendmail(sender_email, email, message)
+        it += 1
+        if it == ratelimit:
+            time.sleep(ratelimit_sleep)
+            it = 0
     
     # terminating the session
     s.quit()
