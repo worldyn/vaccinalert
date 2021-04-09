@@ -8,7 +8,7 @@ from dbutils import *
 from emailsender import *
 
 def main():
-    sleep_time = 60 # seconds
+    sleep_time = 80 # seconds
 
     while True:
         print("\n\n")
