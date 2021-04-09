@@ -3,14 +3,26 @@ import smtplib
 import dbutils 
 import json
 
-message = """\
+message_notif = """\
 Subject: 1177 vaccination page changed in your region
 
 This mail was sent to you because you had signed up for the vaccine alert mail list. Please check the 
-1177 vaccination page as it has been updated.\n Regards,\nwww.vaccinalert.se"""
+1177 vaccination page as it has been updated.\n Regards,\nvaccinalert"""
+
+message_verify = """\
+Subject: vaccinalert recieved your payment 
+
+Hello!
+
+This mail was sent to you because you have signed up for the vaccine alert mail list and paid with swish.
+
+Please check your email on a daily basis to get the email notification when something has changed on the 1177 vaccination page.
+\n\n Regards,\nvaccinalert"""
 
 
-def send(receivers):
+# tupformat input: (('mail@mail.com'), (), ...)
+# not tupformat input: ['mail@mail.com', ...]
+def send(receivers,message, tupformat=True):
 
     # creates SMTP session
     s = smtplib.SMTP('smtp.gmail.com', 587)
@@ -30,20 +42,34 @@ def send(receivers):
 
     # sending the mail
     for email in receivers:
-        s.sendmail(sender_email, email[0], message)
+        if tupformat:
+            s.sendmail(sender_email, email[0], message)
+        else:
+            s.sendmail(sender_email, email, message)
     
     # terminating the session
     s.quit()
 
 
 
-def send_emails(selected_region):
-
+def send_emails_notif(selected_region):
     db,cursor = dbutils.connect()
     res = dbutils.get_all_verified_emails(selected_region, db, cursor)
 
-    send(res)
+    send(res, message_notif)
+
+# assumes list of emails exist in db
+def send_emails_verified(email_list):
+    #f = open('verifiedlist.json', 'r')
+    #data = json.load(f)
+    #email_list = data["emails"]
+    #f.close()
+
+    #db,cursor = dbutils.connect()
+    #res = dbutils.get_all_verified_emails(selected_region, db, cursor)
+    send(email_list, message_verify, tupformat=False)
 
 
 # test
 #send_emails("stockholm")
+#send_emails_verified()

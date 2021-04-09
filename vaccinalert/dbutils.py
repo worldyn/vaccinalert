@@ -49,6 +49,35 @@ def update_status(region, num_groups, num_closed_groups, db, cursor):
     cursor.execute(sql, (region, num_groups, num_closed_groups))
     db.commit()
 
+# input list of email strings
+# returns lists: valid_emails, invalid_emails 
+def check_emails(email_list, db, cursor):
+    valid_emails = []
+    invalid_emails = []
+    for email in email_list:
+        sql = "SELECT `email` FROM `Users` WHERE `email`=%s"
+        cursor.execute(sql, (email))
+        res = cursor.fetchone()
+        if res == None:
+            invalid_emails.append(email)
+        else:
+            valid_emails.append(email)
+    return valid_emails, invalid_emails 
+
+# in: list of email strings
+# out: status boolean
+def verify_emails(email_list, db, cursor):
+    try:
+        tupemails = tuple(email_list)
+        sql = "UPDATE Users SET verified = '1' WHERE email IN %s"
+        
+        cursor.execute(sql, (tupemails,))
+        db.commit()
+        return True
+    except:
+        return False
+
+
 # Example usage:
 # https://pymysql.readthedocs.io/en/latest/user/examples.html
 #db,cursor = connect()

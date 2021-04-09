@@ -42,7 +42,7 @@ def main():
         # if mismatch send out emails and update db
         if curr_num_groups != num_boxes or curr_num_closed_groups != num_notopen:
             print("=> ALERT MISMATCH!!! Sending out alerts ...")
-            send_emails("stockholm")
+            send_emails_notif("stockholm")
             update_status("stockholm", num_boxes, num_notopen, db, cursor)
         else:
             print("=> no mismatch, no change ...")
