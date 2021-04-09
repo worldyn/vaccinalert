@@ -7,6 +7,8 @@ gmailaccountnames.json
 database.json
 *.json
 *.txt
+vaccinalert/*.json
+vaccinalert/*.txt
 
 1177.html
 
