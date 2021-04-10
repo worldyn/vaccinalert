@@ -49,7 +49,6 @@ def index():
             return render_template('success.html')
         except:
             print("server error mysql...")
-            cur.close()
             return render_template('error.html')
     print("getting...")
     return render_template('testindex.html')
