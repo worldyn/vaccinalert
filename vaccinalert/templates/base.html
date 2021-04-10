@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
     <title>{% block title %}{% endblock %}</title>
+
 
 </head>
 <body>
@@ -19,24 +19,28 @@
 
           </div>
 
-          <div class="col-sm-6">
+          <div class="col-sm-7">
             <form method="POST" action="">
                 <center>
                 <br>
-                <h5>We can currently only notify people who live in the Stockholm region.</h5> <br>
+                <h6 class="text-danger">We can currently only notify people who live in the Stockholm region.</h6> <br>
                 <h4>Time since our awesome program last controlled if 1177.se updated the Stockholm region vaccination webpage:</h4> <br>
-                <h1>00:00</h1> <br>
-                <p>Do you want an email sent to you when the vaccination page on <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> is updated? 
+                <h1 id="clock"></h1> <br>
+                <p class="pb-4">Do you want an email sent to you when the vaccination page on <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> is updated? 
                 Please enter your email address below and swish a minimum amount of 20 SEK to 0730577417 
-                or <a href="https://www.paypal.com/paypalme/gustafholmer?locale.x=sv_SE&fbclid=IwAR1PLcrgPMYuxS51xExodu_D-Mpe-kqpYVt4xn4pJJ7IUT_rmZPd7JA8XF0.">paypal</a> . 
+                or <a href="https://www.paypal.com/paypalme/gustafholmer?locale.x=sv_SE&fbclid=IwAR1PLcrgPMYuxS51xExodu_D-Mpe-kqpYVt4xn4pJJ7IUT_rmZPd7JA8XF0">paypal</a>.
                 Do not forget to put in your email address in the message field of the transfer.</p>
 
                 <div class="form-group">
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else and we will delete all stored emails when all vaccination times are available on 1177.</small>
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  
+                  <button type="submit" class="btn btn-primary mb-5" >Submit</button>                 
+
+                <h6 class="small mt-2"">The reason for creating this web application is that we currently believe Folkhälsomyndigheten are very vague regarding when 
+                    and how specific age groups in Sweden can begin to book their vaccination appointment.</h6>
+                    <p class="pb-2"> </p>
+
                 </center>
             </form>
 
@@ -49,10 +53,19 @@
           </div>
 
         </div>
-      </div>
-
-
-
         
+        <div class="row row-cols-4">
+        
+            <div class="col"></div>
+            <div class="col"><center><h6 class="small "">Gustaf Holmer<br>gustaf.holmer@outlook.com<br></h6></center></div>
+            <div class="col"><center><h6 class="small "">Adam Jacobs<br>theworldyn@gmail.com<br></h6></center></div>
+            <div class="col"></div>
+
+        </div>
+
+
+      <script type="text/javascript" src="{{ url_for('static', filename = 'time.js') }}"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
 </body>
 </html>
