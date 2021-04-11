@@ -53,6 +53,7 @@ def send(receivers,message, tupformat=True):
             s.sendmail(sender_email, email, message)
         it += 1
         if it == ratelimit:
+            print("rate limit hit, sleeping seconds: ", ratelimit_sleep)
             time.sleep(ratelimit_sleep)
             it = 0
     
