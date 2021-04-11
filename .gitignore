@@ -9,6 +9,8 @@ database.json
 *.txt
 vaccinalert/*.json
 vaccinalert/*.txt
+oldverified
+vaccin/oldverified
 
 1177.html
 
