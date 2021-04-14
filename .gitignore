@@ -4,6 +4,8 @@ secret_key
 *.swp
 *.log
 gmailaccountnames.json
+support_email_credential.json
+support_email.json
 database.json
 *.json
 *.txt
