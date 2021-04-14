@@ -20,6 +20,12 @@ This mail was sent to you because you have signed up for the vaccine alert mail 
 Please check your email on a daily basis to get the email notification when something has changed on the 1177 vaccination page.
 \n\n Regards,\nvaccinalert"""
 
+# add a timestamp and error string with message_support.format()  
+message_support = """\
+Subject: vaccinalert  err
+
+Check logs, at time {}, something went wrong in the scraping: {} """
+
 
 # tupformat input: (('mail@mail.com'), (), ...)
 # not tupformat input: ['mail@mail.com', ...]
@@ -60,6 +66,36 @@ def send(receivers,message, tupformat=True):
     # terminating the session
     s.quit()
 
+# send err notif to 
+def send_support(timestamp, error_string):
+
+    # creates SMTP session
+    s = smtplib.SMTP('smtp.gmail.com', 587)
+    
+    # start TLS for security
+    s.starttls()
+    
+    # open json file with mails 
+    f = open('support_email_credential.json', 'r')
+    data = json.load(f)
+    sender_email = data["sender_email"]
+
+    # Authentication
+    s.login(data["sender_email"], data["sender_psw"])
+
+    f.close()
+
+    f = open('support_email.json', 'r')
+    data = json.load(f)
+    recv_email = data["support_email"]
+
+    f.close()
+
+    # sending the mail
+    s.sendmail(sender_email, recv_email, message_support.format(timestamp, error_string))
+        
+    # terminating the session
+    s.quit()
 
 
 def send_emails_notif(selected_region):

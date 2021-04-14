@@ -8,6 +8,7 @@ from dbutils import *
 from emailsender import *
 import random
 import warnings
+from datetime import datetime
 
 def main():
     sleep_time = 100 # seconds
@@ -18,11 +19,11 @@ def main():
         #print("=> Scraping 1177.se")
 
         # setup web browser
-        #warnings.simplefilter("ignore")
+        warnings.simplefilter("ignore")
         browser = webdriver.PhantomJS()
         # sthlm hardcoded
-        #url = 'https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/'
-        url = 'https://www.1177.se/'
+        url = 'https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/'
+        #url = 'https://www.1177.se/'
         browser.get(url)
 
         boxes = browser.find_elements_by_css_selector(".c-teaser-outer .c-image img")
@@ -36,7 +37,7 @@ def main():
             if not_open in imgsrc:
                 num_notopen += 1
 
-        print("=> scraped box {}, scrape closed".format(num_boxes, num_notopen))
+        print("=> scraped box {}, scrape closed {}".format(num_boxes, num_notopen))
 
         if num_boxes >= num_notopen and num_notopen != 0 and num_boxes != 0:
             #print("=> Checking db status...")
@@ -51,27 +52,22 @@ def main():
                     send_emails_notif("stockholm")
                     update_status("stockholm", num_boxes, num_notopen, db, cursor)
             except:
-                print("Database error / could not reach...")
+                print("ERROR Database / could not reach...")
                 # send mail to support! 
-                f = open('support_email.json', 'r')
-                data = json.load(f)
-                support_email = data["support_email"]
-                send(
-                    [support_email], 
-                    """\
-Subject: vaccinalert db err
-
-                    Database error vaccinalert.se, check log""",
-                    tupformat=False
-                )
+                now = datetime.now()
+                timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
+                send_support(timestamp, " Database error, check log ")
         else:
-            print("ERROR in scraping, num boxes {}, num closed {}".format(num_boxes, num_notopen))
+            print("ERROR scraping, num boxes {}, num closed {}".format(num_boxes, num_notopen))
+            now = datetime.now()
+            timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
+            send_support(timestamp, " Error scraping 1177, check log ")
                 
         browser.quit()
         # sleepy time
-        #print("=> Sleepy time for {} seconds... zzzzz".format(sleep_time))
         sleep = sleep_time + random.randrange(15) 
-        time.sleep(sleep_time)
+        print("=> Sleepy time for {} seconds... zzzzz".format(sleep))
+        time.sleep(sleep)
 
 
 if __name__ == "__main__":
