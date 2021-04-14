@@ -8,7 +8,7 @@ from dbutils import *
 from emailsender import *
 
 def main():
-    sleep_time = 80 # seconds
+    sleep_time = 120 # seconds
 
     while True:
         print("\n\n")
@@ -32,22 +32,21 @@ def main():
                 num_notopen += 1
 
         print("=> Number of closed boxes: ", num_notopen)
-        
-        print("=> Checking db status...")
-        db, cursor = connect()
-        curr_num_groups, curr_num_closed_groups = get_status("stockholm", db,cursor)
-        print("=> Current number of groups {}, number of closed groups {}"\
-                .format(curr_num_groups, curr_num_closed_groups))
+        if num_notopen != 0 and num_boxes != 0:
+            print("=> Checking db status...")
+            db, cursor = connect()
+            curr_num_groups, curr_num_closed_groups = get_status("stockholm", db,cursor)
+            print("=> Current number of groups {}, number of closed groups {}"\
+                    .format(curr_num_groups, curr_num_closed_groups))
 
-        # if mismatch send out emails and update db
-        if curr_num_groups != num_boxes or curr_num_closed_groups != num_notopen:
-            print("=> ALERT MISMATCH!!! Sending out alerts ...")
-            send_emails_notif("stockholm")
-            update_status("stockholm", num_boxes, num_notopen, db, cursor)
-        else:
-            print("=> no mismatch, no change ...")
-            
-
+            # if mismatch send out emails and update db
+            if curr_num_groups != num_boxes or curr_num_closed_groups != num_notopen:
+                print("=> ALERT MISMATCH!!! Sending out alerts ...")
+                send_emails_notif("stockholm")
+                update_status("stockholm", num_boxes, num_notopen, db, cursor)
+            else:
+                print("=> no mismatch, no change ...")
+                
         browser.quit()
         # sleepy time
         print("=> Sleepy time for {} seconds... zzzzz".format(sleep_time))
