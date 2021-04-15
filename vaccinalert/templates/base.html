@@ -11,6 +11,8 @@
     <meta name="keywords" content="vaccine covid notification corona 1177 1177.se vaccination stockholm sweden">
     <meta name="msvalidate.01" content="BDB6F796C82C771EAA3C4BF331AA8D14" />
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
 
     <title>{% block title %}{% endblock %}</title>
 
@@ -22,7 +24,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm"></div>
+            <div class="col-sm">
+
+            </div>
 
             <div class="col-sm-7">
                 <form method="POST" action="">
@@ -42,16 +46,18 @@
                                     <br />
                                     <h6 class="text-danger">We can currently only notify people who live in the Stockholm region.</h6> <br>
                                     <h4>Time since our awesome program last controlled if 1177.se updated the vaccination appointment booking webpage:</h4> <br>
+                                    
                                     <h1 id="clock"></h1> <br>
 
-                                    <p class="pb-2">Do you want an email sent to you when the <span class="text-secondary">vaccination appointment booking</span> 
-                                        webpage on <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> is updated?</p> 
-                                    <h7 class="marginFix">
-                                        <p class="marginFix">1. Sign up for our mailing list in the form below</p>
-                                        <p class="marginFix">2. Swish 0730577417 or <a href="https://www.paypal.com/paypalme/gustafholmer?locale.x=sv_SE&fbclid=IwAR1PLcrgPMYuxS51xExodu_D-Mpe-kqpYVt4xn4pJJ7IUT_rmZPd7JA8XF0">paypal</a> us an amount between <span class="text-danger"> 10-20 SEK</span>.
+                                    <p class="mb-4" >Do you want an email sent to you when the <span class="text-secondary">vaccination appointment booking</span> 
+                                        webpage on <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> is updated? If yes, follow these steps:</p> 
+                                        
+                                    <h7>
+                                        <p class="mb-1">1. Sign up for our mailing list in the form below</p>
+                                        <p class="mb-1">2. Swish 0730577417 or <a href="https://www.paypal.com/paypalme/gustafholmer?locale.x=sv_SE&fbclid=IwAR1PLcrgPMYuxS51xExodu_D-Mpe-kqpYVt4xn4pJJ7IUT_rmZPd7JA8XF0">paypal</a> us an amount between <span class="text-danger"> 10-20 SEK</span>.
                                             Do not forget to put in your email address in the message field of the transfer. The money will cover the expenses of the website</p>
-                                        <p class="marginFix">3. You will receive a confirmation email when we have processed your transfer</p>
-                                        <p class="marginFix">4. Done! Now you will get an alert email whenever our program notice a change on the <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> vaccination booking page</p>
+                                        <p class="mb-1">3. You will receive a confirmation email when we have processed your transfer</p>
+                                        <p class="mb-4">4. Done! Now you will get an alert email whenever our program notice a change on the <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> vaccination booking page</p>
                                     </h7>
 
                                 </div>
@@ -80,15 +86,15 @@
                                         </p>
                                         
                                         
-                                        <h4 class="text-success">Follow these steps to make it possible:</h4>
+                                        <h4 class="mb-4">Follow these steps to make it possible:</h4>
                                         
                                           
                                         <h7 >
-                                            <p>1. Sign up for our mailing list in the form below</p>
-                                            <p>2. Swish 0730577417 or <a href="https://www.paypal.com/paypalme/gustafholmer?locale.x=sv_SE&fbclid=IwAR1PLcrgPMYuxS51xExodu_D-Mpe-kqpYVt4xn4pJJ7IUT_rmZPd7JA8XF0">paypal</a> us an amount between <span class="text-danger"> 10-20 SEK</span>.
+                                            <p class="mb-2">1. Sign up for our mailing list in the form below</p>
+                                            <p class="mb-2">2. Swish 0730577417 or <a href="https://www.paypal.com/paypalme/gustafholmer?locale.x=sv_SE&fbclid=IwAR1PLcrgPMYuxS51xExodu_D-Mpe-kqpYVt4xn4pJJ7IUT_rmZPd7JA8XF0">paypal</a> us an amount between <span class="text-danger"> 10-20 SEK</span>.
                                                  Do not forget to put in your email address in the message field of the transfer. The money will cover the expenses of the website</p>
-                                            <p>3. You will receive a confirmation email when we have processed your transfer</p>
-                                            <p>4. Done! Now you will get an alert email whenever our program notice a change on the <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> vaccination booking page</p>
+                                            <p class="mb-2">3. You will receive a confirmation email when we have processed your transfer</p>
+                                            <p class="mb-4">4. Done! Now you will get an alert email whenever our program notice a change on the <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> vaccination booking page</p>
                                         </h7>
 
                                 </div>
@@ -131,8 +137,8 @@
       
 
       <script type="text/javascript" src="{{ url_for('static', filename = 'time.js') }}"></script>
+    
 
-      
       
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
