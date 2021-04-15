@@ -39,9 +39,12 @@ def get_all_verified_emails(region, db, cursor):
 
 # returns num_groups, num_closed_groups
 def get_status(region, db, cursor):
-    sql = "SELECT `num_groups`,`num_closed_groups` FROM `Status` WHERE `region`=%s"
-    cursor.execute(sql, (region))
-    res = cursor.fetchone()
+    try:
+        sql = "SELECT `num_groups`,`num_closed_groups` FROM `Status` WHERE `region`=%s"
+        cursor.execute(sql, (region))
+        res = cursor.fetchone()
+    except:
+        res = [None, None]
     return res[0], res[1]
 
 def update_status(region, num_groups, num_closed_groups, db, cursor):
