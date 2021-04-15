@@ -12,6 +12,7 @@
     <meta name="msvalidate.01" content="BDB6F796C82C771EAA3C4BF331AA8D14" />
 
 
+
     <title>{% block title %}{% endblock %}</title>
 
 
@@ -27,24 +28,89 @@
             <div class="col-sm-7">
                 <form method="POST" action="">
                     <center>
-                        <br />
-                        <h6 class="text-danger">We can currently only notify people who live in the Stockholm region.</h6> <br>
-                        <h4>Time since our awesome program last controlled if 1177.se updated the vaccination appointment booking webpage:</h4> <br>
-                        <h1 id="clock"></h1> <br>
-                        <p class="pb-4">Do you want an email sent to you when the <span class="text-secondary"> vaccination appointment booking</span> webpage on <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> is updated? 
-                        Please enter your email address below and swish an amount minimum amount of 20 SEK to 0730577417 
-                        or <a href="https://www.paypal.com/paypalme/gustafholmer?locale.x=sv_SE&fbclid=IwAR1PLcrgPMYuxS51xExodu_D-Mpe-kqpYVt4xn4pJJ7IUT_rmZPd7JA8XF0">paypal</a>.
-                        Do not forget to put in your email address in the message field of the transfer. You will receive a confirmation email when we have processed your transfer. The money will cover the expenses of the website.</p>
 
-                        <div class="form-group">
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We will never share your email with anyone else and we will delete all stored emails when all vaccination times are available on 1177.</small>
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-5" >Submit</button>                 
+                          <ul class="nav nav-tabs justify-content-center" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#profile" role="tab" data-toggle="tab" aria-selected="true">Sign up</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#buzz" role="tab" data-toggle="tab">Why you should sign up</a>
+                            </li>
+                          </ul>
 
-                        <h6 class="small mt-2">The reason for creating this web application is that we currently believe Folkhälsomyndigheten is very vague regarding when 
-                            and how specific age groups in Sweden can begin to book their vaccination appointment.</h6>
-                        <p class="pb-2"> </p>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade show active" id="profile" >
+                                    <br />
+                                    <h6 class="text-danger">We can currently only notify people who live in the Stockholm region.</h6> <br>
+                                    <h4>Time since our awesome program last controlled if 1177.se updated the vaccination appointment booking webpage:</h4> <br>
+                                    <h1 id="clock"></h1> <br>
+
+                                    <p class="pb-2">Do you want an email sent to you when the <span class="text-secondary">vaccination appointment booking</span> 
+                                        webpage on <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> is updated?</p> 
+                                    <h7 class="marginFix">
+                                        <p class="marginFix">1. Sign up for our mailing list in the form below</p>
+                                        <p class="marginFix">2. Swish 0730577417 or <a href="https://www.paypal.com/paypalme/gustafholmer?locale.x=sv_SE&fbclid=IwAR1PLcrgPMYuxS51xExodu_D-Mpe-kqpYVt4xn4pJJ7IUT_rmZPd7JA8XF0">paypal</a> us an amount between <span class="text-danger"> 10-20 SEK</span>.
+                                            Do not forget to put in your email address in the message field of the transfer. The money will cover the expenses of the website</p>
+                                        <p class="marginFix">3. You will receive a confirmation email when we have processed your transfer</p>
+                                        <p class="marginFix">4. Done! Now you will get an alert email whenever our program notice a change on the <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> vaccination booking page</p>
+                                    </h7>
+
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane fade" id="buzz">
+                                    <br />
+                                        <h3>The BIG why </h3>
+                                    
+                                        <p>Currently in the Stockholm region, the only way to know when your age group can start to get vaccinated
+                                            is check the news or receive a physical letter from <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> which states that a new vaccination
+                                            group can book a vaccination appointment. <span class="text-secondary">Keep reading below.</span>
+                                        </p>
+
+                                        
+                                        <div>
+                                            <img src="/static/1177picture.png" class="border border-light rounded mx-auto d-block img-fluid " alt="Responsive image" />
+                                        </div>
+
+                                        
+
+                                        <p class="mt-4 mb-4"">
+                                            This slooooow way to be aware when you can start making an appointment is what our mailing list wants to solve. 
+                                            By signing up for our mail list you will know at once when <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> have opened bookings for a new vaccination group 
+                                            (i.e when the boxes in the image above where it says “Ännu inte öppen” opens) on their vaccination information webpage. 
+                                            Instead of waiting for lagging news or letters, you can be quick to find out when you can make a vaccination appointment. 
+                                        </p>
+                                        
+                                        
+                                        <h4 class="text-success">Follow these steps to make it possible:</h4>
+                                        
+                                          
+                                        <h7 >
+                                            <p>1. Sign up for our mailing list in the form below</p>
+                                            <p>2. Swish 0730577417 or <a href="https://www.paypal.com/paypalme/gustafholmer?locale.x=sv_SE&fbclid=IwAR1PLcrgPMYuxS51xExodu_D-Mpe-kqpYVt4xn4pJJ7IUT_rmZPd7JA8XF0">paypal</a> us an amount between <span class="text-danger"> 10-20 SEK</span>.
+                                                 Do not forget to put in your email address in the message field of the transfer. The money will cover the expenses of the website</p>
+                                            <p>3. You will receive a confirmation email when we have processed your transfer</p>
+                                            <p>4. Done! Now you will get an alert email whenever our program notice a change on the <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> vaccination booking page</p>
+                                        </h7>
+
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <small id="emailHelp" class="form-text text-muted">We will never share your email with anyone else and we will delete all stored emails when all vaccination times are available on 1177.
+                                        We do not take any responsibility for your vaccination booking.
+                                    </small>
+                                </div>
+                                <button type="submit" class="btn btn-primary mb-5" >Submit</button>
+
+                                <hr/>
+
+                                <h6 class="small mt-2">The reason for creating this web application is that we currently believe Folkhälsomyndigheten is very vague regarding when 
+                                    and how specific age groups in Sweden can begin to book their vaccination appointment.</h6>
+                                <p class="pb-1"> </p>
+
+
                     </center>
                 </form>
             </div>
@@ -64,6 +130,12 @@
 
       <script type="text/javascript" src="{{ url_for('static', filename = 'time.js') }}"></script>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+      
+      
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
 </body>
 </html>
