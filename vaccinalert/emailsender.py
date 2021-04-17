@@ -7,14 +7,14 @@ import time
 message_notif = """\
 Subject: 1177 vaccination page changed in your region
 
-This mail was sent to you because you had signed up for the vaccine alert mail list. Please check the 1177 vaccination page as it has been updated.\n Regards,\nvaccinalert"""
+This mail was sent to you because you had signed up for the vaccine alert email list. Please check the 1177 vaccination page as it has been updated.\n\n Regards,\nvaccinalert"""
 
 message_verify = """\
-Subject: vaccinalert recieved your payment 
+Subject: vaccinalert received your payment 
 
 Hello!
 
-This mail was sent to you because you have signed up for the vaccine alert mail list and paid with swish or paypal.
+This mail was sent to you because you have signed up for the vaccine alert email list and paid with swish or paypal.
 
 Please check your email on a daily basis to get the email notification when something has changed on the 1177 vaccination page.
 \n\n Regards,\nvaccinalert"""

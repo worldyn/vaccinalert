@@ -11,7 +11,7 @@
     <meta name="keywords" content="vaccine covid notification corona 1177 1177.se vaccination stockholm sweden">
     <meta name="msvalidate.01" content="BDB6F796C82C771EAA3C4BF331AA8D14" />
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     
 
     <title>{% block title %}{% endblock %}</title>
@@ -21,8 +21,37 @@
 <body>
     {% block content %}
     {% endblock %}
+    
 
-    <div class="container">
+    <div role="alert" class="toast position-fixed" data-autohide="false" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header ">
+          
+          <strong class="mr-auto">How to book a vaccination appointment </strong>
+          
+          <button type="button" class="ml-2 mb-2 close" data-dismiss="toast" >
+            <span aria-hidden="true">&times;</span>
+          </button>
+          
+        </div>
+        <div class="toast-body">
+            <small>
+                <p class="mb-2 ">According to 1177.se, there are three ways to book the actual vaccination appointment when it is opened for your vaccination group:</p>
+                <p class="mb-0 ">1. Make an appointment through the app <a href="https://www.slso.sll.se/vard-hos-oss/alltid-oppet/">Alltid Öppet</a></p>
+                <p class="mb-0 ">2. Call your local health center</p>
+                <p class="mb-0 ">3. Log in on <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> and check if your local health center have available times</p>
+
+            </small>
+
+        </div>
+    </div>
+
+
+
+    <div class="container "  >
+
+
+
+
         <div class="row">
             <div class="col-sm">
 
@@ -32,20 +61,20 @@
                 <form method="POST" action="">
                     <center>
 
-                          <ul class="nav nav-tabs justify-content-center" role="tablist">
-                            <li class="nav-item">
-                              <a class="nav-link active" href="#profile" role="tab" data-toggle="tab" aria-selected="true">Sign up</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="#buzz" role="tab" data-toggle="tab">Why you should sign up</a>
-                            </li>
-                          </ul>
+                            <ul class="nav nav-tabs justify-content-center" role="tablist">
+                                <li class="nav-item">
+                                <a class="nav-link active" href="#profile" role="tab" data-toggle="tab" aria-selected="true">Sign up</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="#buzz" role="tab" data-toggle="tab">Why you should sign up</a>
+                                </li>
+                            </ul>
 
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade show active" id="profile" >
                                     <br />
                                     <h6 class="text-danger">We can currently only notify people who live in the Stockholm region.</h6> <br>
-                                    <h4>Time since our awesome program last controlled if 1177.se updated the vaccination appointment booking webpage:</h4> <br>
+                                    <h4>Time since our program last controlled if 1177.se updated the vaccination appointment booking webpage:</h4> <br>
                                     
                                     <h1 id="clock"></h1> <br>
 
@@ -67,8 +96,8 @@
                                         <h3>The BIG why </h3>
                                     
                                         <p>Currently in the Stockholm region, the only way to know when your age group can start to get vaccinated
-                                            is check the news or receive a physical letter from <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> which states that a new vaccination
-                                            group can book a vaccination appointment. <span class="text-secondary">Keep reading below.</span>
+                                            is to check the news or receive a physical letter from <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a>. 
+                                            The letter states that a new vaccination group can book an appointment. <span class="text-secondary">Keep reading below.</span>
                                         </p>
 
                                         
@@ -79,10 +108,10 @@
                                         
 
                                         <p class="mt-4 mb-4"">
-                                            This slooooow way to be aware when you can start making an appointment is what our mailing list wants to solve. 
+                                            This slow way to be informed when you can start making an appointment is what our mailing list wants to solve. 
                                             By signing up for our mail list you will know at once when <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> have opened bookings for a new vaccination group 
                                             (i.e when the boxes in the image above where it says “Ännu inte öppen” opens) on their vaccination information webpage. 
-                                            Instead of waiting for lagging news or letters, you can be quick to find out when you can make a vaccination appointment. 
+                                            Instead of waiting for lagging news or letters, you can be quick to find out by an alert mail from us when you can possibly make a vaccination appointment. 
                                         </p>
                                         
                                         
@@ -109,18 +138,21 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary mb-5" >Submit</button>
 
-                                <hr/>
+                                <hr>
 
                                 <h6 class="small mt-2">The reason for creating this web application is that we currently believe Folkhälsomyndigheten is very vague regarding when 
-                                    and how specific age groups in Sweden can begin to book their vaccination appointment.</h6>
+                                    and how specific age groups in Sweden can begin to book their vaccination appointments.</h6>
                                 <p class="pb-1"> </p>
 
-
+                            </div>
                     </center>
                 </form>
             </div>
 
             <div class="col-sm"></div>
+
+
+
         </div>
 
         
@@ -132,17 +164,33 @@
             <div class="col"><center><h6 class="small">Adam Jacobs<br>theworldyn@gmail.com<br></h6></center></div>
         </div>
 
+    </div> 
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
 
-      <script type="text/javascript" src="{{ url_for('static', filename = 'time.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'time.js') }}"></script>
     
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
       
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(window).on('load', function() {
+                $('.toast').toast('show');
+
+                
+        });
+    </script>
+
+
+
 
 </body>
 </html>
