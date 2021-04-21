@@ -24,28 +24,6 @@
     {% endblock %}
     
 
-    <div role="alert" class="toast position-fixed" data-autohide="false" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header ">
-          
-          <strong class="mr-auto">How to book a vaccination appointment </strong>
-          
-          <button type="button" class="ml-2 mb-2 close" data-dismiss="toast" >
-            <span aria-hidden="true">&times;</span>
-          </button>
-          
-        </div>
-        <div class="toast-body">
-            <small>
-                <p class="mb-2 ">According to 1177.se, there are three ways to book the actual vaccination appointment when it is opened for your vaccination group:</p>
-                <p class="mb-0 ">1. Make an appointment through the app <a href="https://www.slso.sll.se/vard-hos-oss/alltid-oppet/">Alltid Öppet</a></p>
-                <p class="mb-0 ">2. Call your local health center</p>
-                <p class="mb-0 ">3. Log in on <a href="https://www.1177.se/Stockholm/sjukdomar--besvar/lungor-och-luftvagar/inflammation-och-infektion-ilungor-och-luftror/om-covid-19--coronavirus/om-vaccin-mot-covid-19/boka-tid-for-vaccination-mot-covid-19-i-stockholms-lan/">1177.se</a> and check if your local health center have available times</p>
-
-            </small>
-
-        </div>
-    </div>
-
 
 
     <div class="container "  >
@@ -168,13 +146,13 @@
 
     </div> 
 
-
+    <script type="text/javascript" src="{{ url_for('static', filename = 'time.js') }}"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
 
-    <script type="text/javascript" src="{{ url_for('static', filename = 'time.js') }}"></script>
+
     
 
 
