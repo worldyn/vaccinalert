@@ -53,6 +53,14 @@ def index():
     print("getting...")
     return render_template('testindex.html')
 
+@app.after_request
+def add_header(response):
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Expires'] = '0'
+    return response
+
+
 if __name__ == "__main__":
     app.jinja_env.auto_reload = True
     app.config['TEMPLATES_AUTO_RELOAD'] = True
