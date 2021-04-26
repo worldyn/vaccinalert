@@ -17,7 +17,8 @@
     
     <title>{% block title %}{% endblock %}</title>
 
-    <meta http-equiv="refresh" content="" > 
+    <!-- <meta http-equiv="refresh" content="" > -->
+
 </head>
 <body>
     {% block content %}
@@ -192,6 +193,15 @@
         });
     </script>
 
+<script type="text/javascript">
+    
+    if (location.href.indexOf('reload')==-1)
+    {
+    location.href=location.href+'?reload';
+    
+    }
+    
+</script>
 
 
 
