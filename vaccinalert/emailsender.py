@@ -14,7 +14,8 @@ Subject: vaccinalert received your payment
 
 Hello!
 
-This mail was sent to you because you have signed up for the vaccine alert email list and paid with swish or paypal.
+This mail was sent to you because you have signed up for the vaccine alert email list and paid with swish or paypal. Please remember to move this email 
+to your primary inbox so you will get notified when our alert emails are sent. 
 
 Please check your email on a daily basis to get the email notification when something has changed on the 1177 vaccination page.
 \n\nRegards,\nvaccinalert"""
