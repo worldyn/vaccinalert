@@ -68,8 +68,6 @@ def main():
             box_current_age = max(list_with_ages)
 
 
-        
-
         # test value if needed
         #box_current_age = 1980
         print("=> scraped box with phase 4 age {}".format(box_current_age))
