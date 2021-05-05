@@ -195,11 +195,14 @@
 
 <script type="text/javascript">
     
-    if (location.href.indexOf('reload')==-1)
-    {
-    location.href=location.href+'?reload';
-    
-    }
+    setTimeout(function() {
+        if (location.href.indexOf('reload')==-1)
+        {
+        location.href=location.href+'?reload';
+        
+        }
+    }, 300)
+
     
 </script>
 

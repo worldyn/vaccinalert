@@ -80,6 +80,29 @@ def verify_emails(email_list, db, cursor):
     except:
         return False
 
+#
+# ADDED NEW DB CHECK
+#
+# 
+def get_status_age(region, db, cursor):
+    try:
+        sql = "SELECT `num_current_age` FROM `StatusAge` WHERE `region`=%s"
+        cursor.execute(sql, (region))
+        res = cursor.fetchone()
+    except:
+        res = [None]
+    return res[0]
+
+def update_status_age(region, box_current_age, db, cursor):
+    sql = "UPDATE `StatusAge` SET `region` = %s, `num_current_age` = %s"
+    cursor.execute(sql, (region, box_current_age))
+    db.commit()
+
+
+
+
+
+
 
 # Example usage:
 # https://pymysql.readthedocs.io/en/latest/user/examples.html
