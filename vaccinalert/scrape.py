@@ -30,15 +30,6 @@ def main():
 
         boxes = browser.find_elements_by_css_selector(".c-teaser-outer .c-image img")
 
-        # GH: recheck boxes if boxes are zero
-        while (len(boxes) == 0):
-
-            sleep = sleep_time + random.randrange(15) 
-            print("=> Sleepy time as zero boxes is not shown {} seconds... zzzzz".format(sleep))
-            time.sleep(sleep)
-        
-            boxes = browser.find_elements_by_css_selector(".c-teaser-outer .c-image img")
-
 
 
         # GH: get boxes teaser text
@@ -60,8 +51,25 @@ def main():
         
         print("=> Number of closed boxes: ", num_notopen)
 
-        # GH: checks for new upper left box text got new age 
-        box_current_age = int(''.join(re.findall(r'(\d{4,4})', boxes_content[0].get_attribute("textContent"))))
+
+        # GH: checks for the biggest number in the boxes content text
+        #box_current_age = int(''.join(re.findall(r'(\d{4,4})', boxes_content[0].get_attribute("textContent"))))
+        box_current_age = []
+        list_with_ages = []
+        
+        if (len(boxes_content) != 0):
+            for i,box in enumerate(boxes_content):
+                box_current_age.append(re.findall(r'(\d{4,4})', boxes_content[i].get_attribute("textContent")))
+
+            for e in box_current_age:
+                for l in e:
+                    list_with_ages.append(int(l))
+
+            box_current_age = max(list_with_ages)
+
+
+        
+
         # test value if needed
         #box_current_age = 1980
         print("=> scraped box with phase 4 age {}".format(box_current_age))
@@ -113,7 +121,7 @@ def main():
             timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
             send_support(timestamp, " Error scraping 1177, check log ") 
         
-#UPDATE `StatusAge` SET `region` = "stockholm", `num_current_age` = 1966;
+
 
 
         browser.quit()
