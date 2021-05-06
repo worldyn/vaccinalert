@@ -80,7 +80,7 @@ def verify_emails(email_list, db, cursor):
     except:
         return False
 
-#
+
 # ADDED NEW DB CHECK
 #
 # 
