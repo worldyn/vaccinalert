@@ -20,6 +20,11 @@ def main():
         #print("\n\n")
         #print("=> Scraping 1177.se")
 
+
+        errorTries = 0
+
+
+
         # setup web browser
         warnings.simplefilter("ignore")
         browser = webdriver.PhantomJS()
@@ -35,6 +40,7 @@ def main():
         # GH: get boxes teaser text
         boxes_content = browser.find_elements_by_css_selector(".c-teaser__text")
 
+        
 
         num_boxes = len(boxes)
         print("=> Number of boxes: ", num_boxes)
@@ -105,6 +111,9 @@ def main():
 
                     update_status_age("stockholm", box_current_age, db, cursor)
 
+                errorTries = 0
+                print ("ERROR TRIES in success scrape: ", errorTries)
+                
             except:
                 print("ERROR Database / could not reach...")
                 # send mail to support! 
@@ -112,7 +121,10 @@ def main():
                 timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
                 send_support(timestamp, " Database error, check log ") 
         
-        
+        elif errorTries < 15:
+            errorTries += 1
+            print ("ERROR TRIES: ", errorTries)
+
         else:
             print("ERROR scraping, num boxes {}, num closed {}".format(num_boxes, num_notopen))
             now = datetime.now()
