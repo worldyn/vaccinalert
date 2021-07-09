@@ -106,7 +106,8 @@ def main():
         
         '''
 
-
+        send_emails_notif("stockholm")
+        
         #print("=> scraped box {}, scrape closed {}".format(num_boxes, num_notopen))
 
         # GH: important change!
