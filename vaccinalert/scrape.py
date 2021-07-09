@@ -69,12 +69,13 @@ def main():
     
         search_failed = False
 
+        '''
         try:
             info_text = browser_two.find_element_by_id('section-126101').find_element_by_tag_name('div').find_element_by_tag_name('p')
             box_current_age = int(max(re.findall(r'(\d{4,4})', info_text.get_attribute('textContent'))))
         except:
             search_failed = True
-
+        '''
         
         
         print("=> Search failed?: {}".format(search_failed))
@@ -146,12 +147,12 @@ def main():
                 print("=> Database retrieval successful")
 
                 # GH: if mismatch send out emails and update db
-                if box_current_age > curr_num_age_from_db:
-                    print("=> ALERT MISMATCH!!! Sending out alerts ...")
+                #if box_current_age > curr_num_age_from_db:
+                print("=> ALERT MISMATCH!!! Sending out alerts ...")
 
-                    send_emails_notif("stockholm")
+                send_emails_notif("stockholm")
 
-                    update_status_age("stockholm", box_current_age, db, cursor)
+                update_status_age("stockholm", box_current_age, db, cursor)
 
                 errorTries = 0
                 print ("ERROR TRIES in success scrape: ", errorTries)
