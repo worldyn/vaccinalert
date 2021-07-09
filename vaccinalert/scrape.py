@@ -63,7 +63,7 @@ def main():
         
         #print("=> Number of closed boxes: ", num_notopen)
 
-
+        # id="section-126092"
 
         # GH: new code
     
@@ -71,12 +71,15 @@ def main():
 
         try:
             info_text = browser_two.find_element_by_id('section-126101').find_element_by_tag_name('div').find_element_by_tag_name('p')
+            box_current_age = int(max(re.findall(r'(\d{4,4})', info_text.get_attribute('textContent'))))
         except:
             search_failed = True
 
+        
+        
         print("=> Search failed?: {}".format(search_failed))
 
-
+        
 
         '''
 
@@ -111,7 +114,7 @@ def main():
         if search_failed == False:
 
             # GH: getting the age
-            box_current_age = int(max(re.findall(r'(\d{4,4})', info_text.get_attribute('textContent'))))
+            
 
             print("=> Checking db status...")
 
